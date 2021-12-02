@@ -17,6 +17,28 @@ def part_1():
                 print("error")
 
         return count
+    
+# A demonstration of part_1() as a recursive implementation
+def part_1_recursive():
+    with open('input.txt') as f:
+        data = f.readlines()
+        
+        return part_1_loop(data, -1)
+
+# The recursive loop
+def part_1_loop(data, depth):
+    # Base case, if data is empty return 0
+    if !data:
+        return 0
+    
+    # remove first input from list and store
+    input = data.pop()
+   
+    # if depth is defined and input > depth
+    if depth > 0 & input > depth:
+        return 1 + part_1_loop(data, input)
+    else:
+        return part_1_loop(data, input)
 
 def part_2():
     with open('input.txt') as f:
