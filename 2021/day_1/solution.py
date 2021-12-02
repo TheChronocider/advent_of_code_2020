@@ -6,17 +6,13 @@ Created on Weds Dec  1 16:00 2021
 def part_1():
     with open('input.txt') as f:
         data = f.readlines()
-
-        depth = -1
-
+        
         count = 0
         
-        for x in range(len(data)):
+        for x in range(1, len(data)): # start at x = 1
             try:
-                if (int(data[x]) > depth):
+                if (int(data[x]) > int(data[x-1])):
                     count += 1
-                    
-                depth = int(data[x])
             except:
                 print("error")
 
