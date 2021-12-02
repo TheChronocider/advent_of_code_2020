@@ -22,17 +22,20 @@ def part_2():
     with open('input.txt') as f:
         data = f.readlines()
 
+        # depth startomg point
         depth = -1
-
-        count = -1
+        
+        # Initialising count for return
+        count = 0
         
         for x in range(len(data) - 2):
             try:
+                # Initialising window for this loop
                 window = int(data[x]) + int(data[x+1]) + int(data[x+2])
-                print(window)
                 
-                if (window > depth):
-                    count += 1
+                if depth > 0:
+                    if (window > depth):
+                        count += 1
                     
                 depth = window
             except:
@@ -40,5 +43,6 @@ def part_2():
 
         return count
 
-
-print(part_2())
+# Displaying solutions
+print("Part 1:", part_1())
+print("Part 2:", part_2())
