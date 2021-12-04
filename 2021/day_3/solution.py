@@ -43,6 +43,8 @@ def part_2():
     oxygen = find_oxygen(data)
     co2 = find_co2(data)
 
+    file.close()
+
     return int(oxygen, 2) * int(co2, 2)
 
 def find_oxygen(data):
