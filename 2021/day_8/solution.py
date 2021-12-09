@@ -2,6 +2,8 @@
 def process_data():
     with open('input.txt')  as f:
         data = f.readlines()
+
+        number_sum = 0
         
         for line in data:
             signal, output = [val.split() for val in line.split('|')]
@@ -11,7 +13,7 @@ def process_data():
             l = {len(s) : set(s) for s in signal}
             
             for o in map(set, output):
-                match len(o), len(o&k[4]), len(o&l[2]):
+                match len(o), len(o&l[4]), len(o&l[2]):
                     case 2,_,_: value += '1'
                     case 3,_,_: value += '7'
                     case 4,_,_: value += '4'
@@ -22,12 +24,14 @@ def process_data():
                     case 6,4,_: value += '9'
                     case 6,3,1: value += '6'
                     case 6,3,2: value += '0'
+
+            number_sum += int(value)
                 
             
             
         f.close()
         
-        return count
+        return number_sum
 
 
 

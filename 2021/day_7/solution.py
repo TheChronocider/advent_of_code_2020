@@ -12,6 +12,9 @@ def part_2():
         data = [int(number) for number in f.readline().split(',')]
 
         fuel_consumption = lambda d: d*(d+1)/2
+
+
+
         return int(min(sum(fuel_consumption(abs(data - floor(mean(data))))),
           sum(fuel_consumption(abs(data - ceil(mean(data)))))))
 
